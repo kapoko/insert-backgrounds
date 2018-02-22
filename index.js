@@ -13,7 +13,7 @@ const selector = 'data-insert-background';
  * @param  {Function} callback  Gets called everytime another image gets loaded
  * @return {void}               
  */
-const insertBackgrounds = (callback) => {
+const insertBackgrounds = (options = [], callback) => {
     let elements = document.querySelectorAll('[' + selector + ']');
     console.log(elements);
 
@@ -91,6 +91,6 @@ const preloadImages = (imgs, callback) => {
     }
 }
 
-export default (options) => {
-    return insertBackgrounds(options);
+export default (options, callback) => {
+    return insertBackgrounds(options, callback);
 }
