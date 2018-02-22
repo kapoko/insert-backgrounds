@@ -15,7 +15,6 @@ const selector = 'data-insert-background';
  */
 const insertBackgrounds = (options = [], callback) => {
     let elements = document.querySelectorAll('[' + selector + ']');
-    console.log(elements);
 
     if (typeof elements[0] === 'undefined') {
         return;
@@ -35,7 +34,6 @@ const insertBackgrounds = (options = [], callback) => {
  */
 const insertImages = (elements, currentIndex, callback) => {
     let imageUrl = elements[currentIndex].getAttribute(selector);
-    console.log('index: ' + currentIndex);
 
     preloadImages([imageUrl], () => {
         elements[currentIndex].style.backgroundImage = 'url("' + imageUrl + '")';
