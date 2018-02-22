@@ -1,6 +1,6 @@
 # insert-backgrounds 🖼
 
-Asynchronously loads and inserts images as css background from the `data-insert-background` attribute, and gives a callback after each image has completed loading.
+Asynchronously loads and inserts images as css background from the `data-insert-background` attribute, and gives an optional callback after each image has completed loading.
 
 <sup>Note: written in ES6, so only supports ES6 projects for now</sup>
 
