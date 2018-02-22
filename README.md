@@ -24,7 +24,9 @@ Anywhere in your code (but at least after the DOM has loaded), call `insertBackg
 
 ```javascript
 import insertBackgrounds from 'insert-backgrounds';
+
 document.addEventListener("DOMContentLoaded", () => {
+
     insertBackgrounds(options, (id) => {
         switch(id) {
             case 'example-id': 
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
         }        
     });
+    
 });
 ```
 
