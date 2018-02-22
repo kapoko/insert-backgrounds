@@ -1,5 +1,7 @@
 # insert-backgrounds 🖼
 
+[![npm version](https://img.shields.io/npm/v/insert-backgrounds.svg)](https://www.npmjs.com/package/insert-backgrounds)
+
 Asynchronously loads and inserts images as css background from the `data-insert-background` attribute, and gives an optional callback after each image has completed loading.
 
 <sup>Note: written in ES6, so only supports ES6 projects for now</sup>
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
         }        
     });
-    
+
 });
 ```
 
