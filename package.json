@@ -2,16 +2,28 @@
   "name": "insert-backgrounds",
   "version": "0.1.2",
   "description": "Asynchronously loads and inserts images as css background from the data-insert-background attribute",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kapoko/insert-backgrounds.git"
   },
   "author": "Kasper Koman <kasper.koman@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "watch": "babel src --watch --out-dir dist",
+    "prepare": "yarn run build"
+  },
   "dependencies": {
     "classlist-polyfill": "^1.2.0",
     "lodash": "^4.17.5",
     "nodelist-foreach-polyfill": "^1.2.0"
-  }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "files": [
+    "dist"
+  ]
 }

@@ -2,7 +2,7 @@
 
 import 'nodelist-foreach-polyfill';
 import 'classlist-polyfill';
-import isFunction from 'lodash';
+import isFunction from 'lodash/isfunction';
 
 const selector = 'data-insert-background';
 

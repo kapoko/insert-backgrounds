@@ -4,8 +4,6 @@
 
 Asynchronously loads and inserts images as css background from the `data-insert-background` attribute, and gives an optional callback after each image has completed loading.
 
-<sup>Note: written in ES6, so only supports ES6 projects for now</sup>
-
 ## How does it work?
 
 The plugin looks for the `data-insert-background` attribute on elements in the page and starts loading them one by one. After every image is loaded a callback function gets called returning the id of the element or the image url if there's no id. 
@@ -22,14 +20,14 @@ Anywhere on your page use the `data-insert-background` attribute on any element 
 
 #### Javascript 
 
-Anywhere in your code (but at least after the DOM has loaded), call `insertBackgrounds`. First argument is the options array, which does nothing for now. Second function is the callback. In the example below we pass in an anonymous function. The `id` argument is the id of the element on which the `data-insert-background` attribute is found. If there's no id attribute, the image url itself gets passed. 
+Example is in ES6 but should work with common js as well. Anywhere in your code (but at least after the DOM has loaded), call `insertBackgrounds`. First argument is the options array, which does nothing for now, so it's empty. Second function is the callback. In the example below we pass in an anonymous function. The `id` argument is the id of the element on which the `data-insert-background` attribute is found. If there's no id attribute, the image url itself gets passed. 
 
 ```javascript
 import insertBackgrounds from 'insert-backgrounds';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    insertBackgrounds(options, (id) => {
+    insertBackgrounds([], (id) => {
         switch(id) {
             case 'example-id': 
                 // http://example.com/your-image-url.jpg is loaded and inserted!
