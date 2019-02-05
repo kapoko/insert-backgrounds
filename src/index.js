@@ -13,14 +13,15 @@ const selector = 'data-insert-background';
  * @param  {Function} callback  Gets called everytime another image gets loaded
  * @return {void}               
  */
-const insertBackgrounds = (options = [], callback) => {
+const insertBackgrounds = (options = [], callback, finalCallback) => {
     let elements = document.querySelectorAll('[' + selector + ']');
 
     if (typeof elements[0] === 'undefined') {
+        doCallback(finalCallback);
         return;
     }
 
-    insertImages(elements, 0, callback);
+    insertImages(elements, 0, callback, finalCallback);
 }
 
 /**
@@ -32,7 +33,7 @@ const insertBackgrounds = (options = [], callback) => {
  * @param  {Function} callback     Callback function gets called once an image is inserted
  * @return {void}              
  */
-const insertImages = (elements, currentIndex, callback) => {
+const insertImages = (elements, currentIndex, callback, finalCallback) => {
     let imageUrl = elements[currentIndex].getAttribute(selector);
 
     preloadImages([imageUrl], () => {
@@ -44,16 +45,18 @@ const insertImages = (elements, currentIndex, callback) => {
             let id = elements[currentIndex].id;
 
             if (id === "") {
-                callback(imageUrl);
+                doCallback(callback, imageUrl);
             } else {
-                callback(id);
+                doCallback(callback, id);
             }
         }
 
         // Check if there are images left in the array
         currentIndex++;
         if (currentIndex < elements.length) {
-            insertImages(elements, currentIndex, callback);
+            insertImages(elements, currentIndex, callback, finalCallback);
+        } else {
+            doCallback(finalCallback);
         }
     });
 
@@ -89,6 +92,24 @@ const preloadImages = (imgs, callback) => {
     }
 }
 
-export default (options, callback) => {
-    return insertBackgrounds(options, callback);
+/**
+ * Executes a callback function with optional arguments
+ * 
+ * @param  {Function} callback The callbackfunction to be executed
+ * @param  {mixed}    ...      Optional extra argument
+ * @return {void}    
+ */
+const doCallback = (callback, argument) => {
+    if (typeof callback !== 'undefined' && isFunction(callback)) {
+        if (typeof argument !== 'undefined') {
+            callback(argument);
+            return;
+        }
+
+        callback();
+    }
+}
+
+export default (options, callback, finalCallback) => {
+    return insertBackgrounds(options, callback, finalCallback);
 }
