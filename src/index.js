@@ -1,7 +1,6 @@
 'use strict';
 
 import 'nodelist-foreach-polyfill';
-import 'classlist-polyfill';
 import isFunction from 'lodash/isFunction';
 
 const selector = 'data-insert-background';

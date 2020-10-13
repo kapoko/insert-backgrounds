@@ -12,16 +12,19 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "start": "babel src --watch --out-dir dist",
-    "prepare": "yarn run build"
+    "prepare": "npm run build"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
-    "classlist-polyfill": "^1.2.0",
     "lodash": "^4.17.5",
     "nodelist-foreach-polyfill": "^1.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5"
   },
   "files": [
     "dist"
