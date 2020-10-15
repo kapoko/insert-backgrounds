@@ -1,6 +1,6 @@
 {
   "name": "insert-backgrounds",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Asynchronously loads and inserts images as css background from the data-insert-background attribute",
   "main": "dist/index.js",
   "repository": {
